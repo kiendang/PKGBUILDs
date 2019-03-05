@@ -1,0 +1,24 @@
+pkgname=libnvidia-container-bin
+_pkgname=libnvidia-container
+pkgver=1.0.0
+pkgrel=1
+pkgdesc='NVIDIA container runtime library'
+arch=('x86_64')
+url='https://github.com/NVIDIA/libnvidia-container'
+license=('custom')
+depends=(libcap)
+provides=('libnvidia-container' "libnvidia-container-tools=${pkgver}")
+conflicts=('libnvidia-container' 'libnvidia-container-tools')
+source_x86_64=("https://github.com/NVIDIA/libnvidia-container/releases/download/v1.0.0/libnvidia-container_1.0.0_x86_64.tar.xz")
+sha256sums_x86_64=('10fce218de0c89455e8cbc601892ed6bc934231a0ff87b4f6d8ebc3569209fa5')
+
+package() {
+  cd "$srcdir"/"$_pkgname"_"$pkgver"
+  install -m755 -d "$pkgdir/usr/lib"
+  cp -a usr/local/lib/"$_pkgname".so* "$pkgdir/usr/lib/"
+  cp -a usr/local/lib/"$_pkgname".a "$pkgdir/usr/lib/"
+  cp -a usr/local/lib/pkgconfig "$pkgdir/usr/lib/"
+  install -D -m755 usr/local/include/nvc.h "$pkgdir/usr/include/nvc.h"
+  install -D -m755 usr/local/bin/nvidia-container-cli "$pkgdir/usr/bin/nvidia-container-cli"
+  install -D -m644 usr/local/share/doc/*/LICENSE "$pkgdir/usr/share/licenses/$_pkgname-$pkgver/LICENSE"
+}

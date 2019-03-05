@@ -20,5 +20,6 @@ package() {
   cp -a usr/local/lib/pkgconfig "$pkgdir/usr/lib/"
   install -D -m755 usr/local/include/nvc.h "$pkgdir/usr/include/nvc.h"
   install -D -m755 usr/local/bin/nvidia-container-cli "$pkgdir/usr/bin/nvidia-container-cli"
-  install -D -m644 usr/local/share/doc/*/LICENSE "$pkgdir/usr/share/licenses/$_pkgname-$pkgver/LICENSE"
+  install -m755 -d "$pkgdir/usr/share/doc"
+  cp -a usr/local/share/doc/* "$pkgdir/usr/share/doc/"
 }

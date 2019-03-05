@@ -7,6 +7,8 @@ arch=('x86_64')
 url='https://github.com/NVIDIA/nvidia-container-runtime'
 license=('custom')
 depends=(nvidia-container-runtime)
+provides=('nvidia-container-runtime-hook')
+conflicts=('nvidia-container-runtime-hook')
 source_x86_64=("https://nvidia.github.io/nvidia-container-runtime/centos7/x86_64/${_pkgname}-1.4.0-2.x86_64.rpm")
 sha256sums_x86_64=('8d3f6acd6a498c4fd9a2fb5a862536a9c6f3f3839885b358df6d89aaad78a3df')
 

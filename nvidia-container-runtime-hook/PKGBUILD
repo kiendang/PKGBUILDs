@@ -18,7 +18,7 @@ prepare() {
 
 build() {
   cd ${_srcdir}/hook/nvidia-container-runtime-hook
-  GOPATH="$srcdir/gopath" go install -ldflags " -s -w" -v "$pkgname"
+  GOPATH="$srcdir/gopath" go install -buildmode=pie -ldflags " -s -w" "$pkgname"
 }
 
 package() {

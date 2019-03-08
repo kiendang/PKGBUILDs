@@ -1,7 +1,7 @@
 _srcdir='nvidia-container-runtime-1.4.0-1'
 pkgname=nvidia-container-runtime-hook
 pkgver=1.4.0
-pkgrel=2
+pkgrel=1
 pkgdesc='NVIDIA container runtime hook'
 arch=('x86_64')
 url='https://github.com/NVIDIA/nvidia-container-runtime'
